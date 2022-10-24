@@ -1,0 +1,8 @@
+1.  Creat rails project
+    rails new project_name
+
+2. create migration file
+    rails generate migration "change_ino+_to_parent_table"
+
+3. migrate migration file to schema
+    rails db:migrate
