@@ -1,0 +1,21 @@
+<h1>All Articles will be here</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Is Active</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @all_articles.each  do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.description %></td>
+      <td><%= article.isActive %></td>
+      <td>Active</td>
+    </tr>
+  <% end %>
+
+
+</table>
