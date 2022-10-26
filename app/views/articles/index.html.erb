@@ -13,9 +13,15 @@
       <td><%= article.title %></td>
       <td><%= article.description %></td>
       <td><%= article.isActive %></td>
-      <td>Active</td>
+      <td>
+        <%= link_to "Delete", article_path(article), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        } %>
+      </td>
     </tr>
   <% end %>
 
 
 </table>
+
