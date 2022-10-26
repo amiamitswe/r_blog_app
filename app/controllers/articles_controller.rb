@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_action :get_article, only: [:show, :edit, :update, :destroy]
+
   def index
     @all_articles = Article.all
   end
@@ -30,16 +32,12 @@ class ArticlesController < ApplicationController
   end
   def show
     # @ convert regular variable to instance variable
-
-    @article = Article.find(params[:id])
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     if @article.update(params.require(:article).permit(:title, :description, :count, :isActive))
       flash[:notice] = "Article update successfully"
       redirect_to @article
@@ -49,11 +47,15 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     if @article
       @article.destroy
       flash[:notice] = "\"#{@article.title}\""  + "Article Deleted successfully"
       redirect_to articles_path, status: :see_other
     end
+  end
+
+  private
+  def get_article
+    @article = Article.find(params[:id])
   end
 end
