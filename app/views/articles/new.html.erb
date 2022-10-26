@@ -1,17 +1,25 @@
 <h1>Create new Article</h1>
 
-<%= @article.errors %>
+<!--if flash message then-->
+<%# if flash[:messages] %>
+<!--  <h2>Error on saving</h2>-->
+<!--  <ul>-->
+    <%# flash[:messages].each do |msg| %>
+<!--      <li><%#= msg %></li>-->
+    <%# end %>
+<!--  </ul>-->
+<%# end %>
 
 <% if @article.errors.any? %>
   <h2>Error on saving</h2>
   <ul>
-    <% @article.errors.each do |msg| %>
+    <% @article.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
 <% end %>
 
-<%= form_with scope: :article, url: articles_path, local: true do |f| %>
+<%= form_with scope: :article, url: articles_path, data: { turbo: false }, local: true do |f| %>
   <div>
     <%= f.label :title %> <br>
     <%= f.text_field :title %>
