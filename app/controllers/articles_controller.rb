@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
       @article.save
       # redirect_to article_path(@article)
       # or
+      flash[:notice] = "Article create done"
       redirect_to @article
     else
       # # if generate flash message then receive by flash[:messages]
