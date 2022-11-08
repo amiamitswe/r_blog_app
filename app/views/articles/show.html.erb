@@ -3,6 +3,8 @@
 <p><strong>Description: </strong><%= @article.description %></p>
 <p><strong>Count: </strong><%= @article.count %></p>
 <p><strong>Is Active: </strong><%= @article.isActive %></p>
+
+<p>By : <%= @article.user.username if @article.user %></p>
 <%= link_to "All Articles", articles_path %>
 |
 <%= link_to "Delete this Article", article_path(@article), data: {
