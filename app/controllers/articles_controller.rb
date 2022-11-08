@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   before_action :get_article, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -12,6 +11,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user = User.first
     if @article.valid?
       @article.save
       # redirect_to article_path(@article)
@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
     end
     # render nothing: true, status: 201
   end
+
   def show
     # @ convert regular variable to instance variable
   end
@@ -49,12 +50,13 @@ class ArticlesController < ApplicationController
   def destroy
     if @article
       @article.destroy
-      flash[:notice] = "\"#{@article.title}\""  + "Article Deleted successfully"
+      flash[:notice] = "\"#{@article.title}\"" + "Article Deleted successfully"
       redirect_to articles_path, status: :see_other
     end
   end
 
   private
+
   def get_article
     @article = Article.find(params[:id])
   end
