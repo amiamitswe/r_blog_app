@@ -8,14 +8,7 @@
 <!--  </ul>-->
 <%# end %>
 
-<% if @article.errors.any? %>
-  <h2>Error on saving</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 
 <%= form_with(model: @article, local: true, data: { turbo: false })  do |f| %>
   <div>
