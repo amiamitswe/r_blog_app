@@ -1,0 +1,24 @@
+
+<%= render 'shared/errors', obj: @user %>
+<%= form_with(model: @user, local: true, data: { turbo: false })  do |f| %>
+  <div>
+    <%= f.label :username %> <br>
+    <%= f.text_field :username, placeholder: "Enter a username" %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :emial %> <br>
+    <%= f.email_field :email,placeholder: "Enter a email address" %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :password %> <br>
+    <%= f.password_field :password, placeholder: "Password" %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit "Sighn Up" %>
+  </div>
+<% end %>
+<br>
+<%# <%= link_to "All Articles", articles_url %>
