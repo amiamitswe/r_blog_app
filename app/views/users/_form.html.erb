@@ -17,7 +17,7 @@
   </div>
   <br>
   <div>
-    <%= f.submit "Sighn Up" %>
+    <%= f.submit(@user.new_record? ? "Sighn Up" : "Update account") %>
   </div>
 <% end %>
 <br>
