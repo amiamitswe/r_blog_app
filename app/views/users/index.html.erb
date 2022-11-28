@@ -1,0 +1,16 @@
+<h1 class="all_user_list">All Users</h1>
+
+<% @users.each do |user| %>
+  <div class='user'>
+    <%= link_to user.username.upcase, user, class: "username" %>
+    <%= gravatar_for(user, size: 60, className: "userImage") %>
+    <p><%= pluralize(user.articles.count, "article") %></p>
+    <%= link_to "View Profile", user %>
+    <%= link_to "Edit Profile", edit_user_path(user) %>
+
+    <div>
+    <p>Joined at <%= time_ago_in_words(user.created_at) %><p>
+    </div>
+  </div>
+
+<% end %>
