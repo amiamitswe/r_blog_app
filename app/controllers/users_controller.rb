@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update]
 
   def show
+    @all_articles = @user.articles
   end
 
   def edit
