@@ -9,5 +9,11 @@
 <br><br>
 
 
-<%= render 'article' %>
+
+
+<div class="apple_pagination">
+  <%= will_paginate @all_articles, :container => false %>
+</div>
+
+<%= render "article" %>
 
