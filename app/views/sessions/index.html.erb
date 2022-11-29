@@ -1,0 +1,13 @@
+<%= form_with(scope: :session, url: login_path, local: true, data: { turbo: false }) do |f| %>
+    <div class="container">
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: "Enter Email", required: true %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Enter Password", required: true %>
+        
+        <%= f.submit "Log in", class: "login-btn" %>
+      <% # <button type="submit">Login</button> %>
+    </div>
+
+    <% end %>
