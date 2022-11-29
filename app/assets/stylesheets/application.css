@@ -14,11 +14,21 @@
  *= require_self
  */
 
- .all_user_list {
+.nav-style {
+  padding: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.nav-style > a {
+  text-decoration: none;
+}
+.all_user_list {
   text-align: center;
   font-size: 3rem;
-  
- }
+  margin-bottom: 1rem;
+}
 
 .user {
   border: 3px solid gray;

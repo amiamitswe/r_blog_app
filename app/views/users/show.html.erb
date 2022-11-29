@@ -3,6 +3,8 @@
 <p><strong>Email: </strong><%= @user.email %></p>
 <%= gravatar_for @user, size: 250 %>
 
+<%= link_to "Edit your profile", edit_user_path(@user) %>
+
 <p><%= @user.username %>'s articles</p>
 
-<%= render 'articles/article' %>
+<%= render "articles/article" %>
