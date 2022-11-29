@@ -7,6 +7,10 @@
   <%= link_to "Signup", signup_path %> 
 </div>
 
+<div class="apple_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>
+
 <% @users.each do |user| %>
   <div class='user'>
     <%= link_to user.username.upcase, user, class: "username" %>
@@ -19,5 +23,8 @@
     <p>Joined at <%= time_ago_in_words(user.created_at) %><p>
     </div>
   </div>
-
 <% end %>
+
+<div class="apple_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>
