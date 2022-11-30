@@ -1,5 +1,5 @@
 <%= form_with(scope: :session, url: login_path, local: true, data: { turbo: false }) do |f| %>
-    <div class="container">
+    <div class="container-div">
       <%= f.label :email %>
       <%= f.email_field :email, placeholder: "Enter Email", required: true %>
 
