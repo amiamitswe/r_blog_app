@@ -6,19 +6,19 @@
       <%= f.label :username %> <br>
       <%= f.text_field :username, placeholder: "Enter a username" %>
     </div>
-    <br>
+
     <div>
       <%= f.label :emial %> <br>
       <%= f.email_field :email, placeholder: "Enter a email address" %>
     </div>
-    <br>
+ 
     <div>
       <%= f.label :password %> <br>
       <%= f.password_field :password, placeholder: "Password" %>
     </div>
-    <br>
+
     <div>
-      <%= f.submit(@user.new_record? ? "Sighn Up" : "Update account", class: "login-btn") %>
+      <%= f.submit(@user.new_record? ? "Sighn Up" : "Update account", class: "login-btn w-full mt-3") %>
     </div>
   <% end %>
 </div>
