@@ -8,7 +8,10 @@
 
   <% if logged_in? && @user == current_user %>
     <%= link_to "Edit your profile", edit_user_path(@user), class: "my-3" %>
-    | <%= link_to "Delete Profile", user_path(@user), data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this account" }, class: 'text-orange-700' %>
+
+    <% if !current_user.admin? %>
+      | <%= link_to "Delete Profile", user_path(@user), data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this account" }, class: 'text-orange-700' %>
+    <% end %>
   <% end %>
 
   <p class='my-3'><%= @user.username %>'s articles</p>

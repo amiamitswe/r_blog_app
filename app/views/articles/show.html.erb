@@ -7,7 +7,7 @@
 
 <p>By : <%= @article.user.username if @article.user %></p>
 <%= link_to "All Articles", articles_path %>
-<% if logged_in? && @article.user == current_user %>
+<% if logged_in? && (@article.user == current_user || current_user.admin?) %>
   |
   <%= link_to "Delete this Article", article_path(@article), data: {
     turbo_method: :delete,
