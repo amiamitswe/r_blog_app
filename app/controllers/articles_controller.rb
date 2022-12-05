@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :get_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     # @all_articles = Article.all
@@ -64,5 +66,13 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :description, :count, :isActive)
+  end
+
+  def require_same_user
+    if current_user != @article.user
+      flash[:alert] = "You can't modify others content"
+      redirect_to @article
+    end
+
   end
 end
