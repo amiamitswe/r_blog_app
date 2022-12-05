@@ -1,16 +1,17 @@
 <div class='text-center'>
-<h1><%= @user.username %>'s Profile</h1>
-<p><strong>Username: </strong><%= @user.username %></p>
-<p><strong>Email: </strong><%= @user.email %></p>
+  <h1><%= @user.username %>'s Profile</h1>
+  <p><strong>Username: </strong><%= @user.username %></p>
+  <p><strong>Email: </strong><%= @user.email %></p>
 
-<%= gravatar_for @user, size: 250, className: "w-24 h-24 rounded-full mx-auto" %>
+  <%= gravatar_for @user, size: 250, className: "w-24 h-24 rounded-full mx-auto" %>
 
 
-<% if logged_in? && @user == current_user %>
-<%= link_to "Edit your profile", edit_user_path(@user), class: "my-3" %>
-<% end %>
+  <% if logged_in? && @user == current_user %>
+    <%= link_to "Edit your profile", edit_user_path(@user), class: "my-3" %>
+    | <%= link_to "Delete Profile", user_path(@user), data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this account" }, class: 'text-orange-700' %>
+  <% end %>
 
-<p class='my-3'><%= @user.username %>'s articles</p>
+  <p class='my-3'><%= @user.username %>'s articles</p>
 </div>
 
 <%= render "articles/article" %>
